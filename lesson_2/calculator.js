@@ -12,7 +12,7 @@ let op =readline.question();
 
 let output;
 
-
+//test comment
 function calc(n1,n2,op){
   if(op=="1"){
     return Number(n1)+Number(n2);
