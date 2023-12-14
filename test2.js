@@ -1,3 +1,5 @@
 //console.log("Change this");
 
-console.log(typeof parseFloat("12.2 grams"));
+if (Number.isNaN(Number(NaN))) {
+  console.log(Number.isNaN(Number(100)));
+}
