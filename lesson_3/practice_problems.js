@@ -335,7 +335,7 @@
 // console.log(coinChange([1, 2, 5], 11)); // Expected output: An array of coins that sum up to 11, e.g., [5, 5, 1]
 // console.log(coinChange([2], 3)); // Expected output: []
 // console.log(coinChange([1], 0)); // Expected output: []
-`
+
 // function coinChange(coins, amount) {
 //   const result = [];
 //   const currentCombo = [];
@@ -365,43 +365,180 @@
 //   return result;
 // }
 
-// // Testing the function
+// Testing the function
 // console.log(coinChange([1, 2, 5], 11));
-`;
-function coinChange(coins, amount) {
-  const memo = new Map();
 
-  function dfs(remaining) {
-    // Base cases
-    if (remaining === 0) return 0;
-    if (remaining < 0) return -1;
+// function coinChange(coins, amount) {
+//   const memo = new Map();
 
-    // Return the saved result if it's already computed
-    if (memo.has(remaining)) {
-      return memo.get(remaining);
-    }
+//   function dfs(remaining) {
+//     // Base cases
+//     if (remaining === 0) return 0;
+//     if (remaining < 0) return -1;
 
-    let minimum = Infinity;
+//     // Return the saved result if it's already computed
+//     if (memo.has(remaining)) {
+//       return memo.get(remaining);
+//     }
 
-    // Iterate through each coin and make recursive calls
-    for (const coin of coins) {
-      const res = dfs(remaining - coin);
-      // Update the minimum if a new minimum is found
-      if (res >= 0 && res < minimum) {
-        minimum = 1 + res;
-      }
-    }
+//     let minimum = Infinity;
 
-    // Save the result in the memoization object
-    memo.set(remaining, minimum === Infinity ? -1 : minimum);
-    return memo.get(remaining);
-  }
+//     // Iterate through each coin and make recursive calls
+//     for (const coin of coins) {
+//       console.log("Coin: " + coin);
+//       console.log("Remaining: " + remaining);
+//       console.log("Min: " + minimum);
+//       const res = dfs(remaining - coin);
+//       console.log("Res: " + res);
+//       // Update the minimum if a new minimum is found
+//       if (res >= 0 && res < minimum) {
+//         minimum = 1 + res;
+//       }
+//     }
 
-  // Initial call to dfs function
-  return dfs(amount);
-}
+//     // Save the result in the memoization object
+//     memo.set(remaining, minimum === Infinity ? -1 : minimum);
+//     return memo.get(remaining);
+//   }
+
+//   // Initial call to dfs function
+//   return dfs(amount);
+// }
 
 // Testing the function with the provided examples
-console.log(coinChange([1, 2, 5], 100)); // Expected output: 3
-console.log(coinChange([2], 3)); // Expected output: -1
-console.log(coinChange([1], 0)); // Expected output: 0
+//console.log(coinChange([1, 2, 5], 2)); // Expected output: 3
+//console.log(coinChange([2], 3)); // Expected output: -1
+//console.log(coinChange([1], 0)); // Expected output: 0
+
+// const a = (b) => {
+//   return b * 2;
+// };
+
+// console.log(a(5));
+
+// function sDiv(string) {
+//   let a = string.split("");
+//   let divCounter = 0;
+
+//   for (let i in a) {
+//     if (
+//       a[i] === "<" &&
+//       (a[+i + 1] == "d" || (a[+i + 1] === "/" && a[+i + 2] === "d"))
+//     ) {
+//       divCounter++;
+
+//       if (divCounter % 2 === 0 && a[+i + 1] !== "/") {
+//         a.splice(+i + 1, 0, "/");
+//       }
+//     }
+//   }
+//   return a.join("");
+// }
+
+// console.log(sDiv("<div><p>Here is a <div> tag <p>"));
+// console.log(sDiv("<div><div><p>Hello</p><div><div>"));
+// console.log(sDiv("<div></div><p>Hello</p><div></div><div><div>"));
+
+// const a = { aa: "aa", bb: "bb" };
+// a["aa"] = "c";
+
+// console.log(a);
+// function appendTo(str, otherStr) {
+//   for (let index = 0; index < otherStr.length; ++index) {
+//     str += otherStr[index];
+//   }
+
+//   return str;
+// }
+
+// console.log(appendTo("hi", "hi"));
+
+// let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Pebbles", "Bambam"];
+// let object = {};
+// let i = 0;
+// for (let o of flintstones) {
+//   object[o] = i;
+//   i++;
+// }
+// console.log(object);
+
+// let flintstones = ["Fred", "Barney", "Wilma", "Betty", "Pebbles", "Bambam"];
+
+// let flintstonesObject = flintstones.reduce((obj, name, index) => {
+//   obj[name] = index;
+//   return obj;
+// }, {});
+
+// console.log(flintstonesObject);
+
+// let ages = {
+//   Herman: 32,
+//   Lily: 30,
+//   Grandpa: 5843,
+//   Eddie: 10,
+//   Marilyn: 22,
+//   Spot: 237,
+// };
+
+// let age = Object.values(ages).reduce((acc, value) => acc + value, 0);
+// console.log(age);
+
+// console.log(Math.min(...Object.values(ages)));
+
+// let statement = "The Flintstones Rock".split("").filter((c) => c !== " ");
+// let object = {};
+// statement.forEach((value) => {
+//   if (object[value]) {
+//     object[value]++;
+//   } else {
+//     object[value] = 1;
+//   }
+// });
+
+// console.log(object);
+
+// function pen(str) {
+//   let p = str.split(" ");
+//   return p[p.length - 2];
+// }
+
+// console.log(pen("l s i great") === "i");
+
+// function xor(a, b) {
+//   return (a && !b) || (b && !a);
+// }
+
+// console.log(xor("", true));
+
+// let result = ["a", "b", "c"].forEach(function (item) {
+//   console.log(item);
+// });
+
+// console.log(result); // []
+
+// function bob(title, author) {
+//   return {
+//     title: title,
+//     author: author,
+//     behavior: function () {
+//       return "ahhh" + title;
+//     },
+//   };
+// }
+
+// let a = bob("titles", "auth");
+// let b = bob("title2", "auth2");
+
+// console.log(a.behavior());
+// console.log(a.author);
+let a = {
+  foo: 1,
+  bar: 2,
+};
+
+let b = Object.create(a);
+
+console.log(Object.getPrototypeOf(b));
+console.log("bar" in b);
+console.log(b.hasOwnProperty("bar"));
+console.log(Object.keys(b));

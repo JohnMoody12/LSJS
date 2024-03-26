@@ -73,11 +73,12 @@ let readline = require("readline-sync");
 
 // console.log(mul(20));
 
-function utf(s) {
-  let total = 0;
-  for (let c in s) {
-    total += s.charCodeAt(c);
-  }
-  return total;
-}
-console.log(utf("hihihihi"));
+// function utf(s) {
+//   let total = 0;
+//   for (let c in s) {
+//     total += s.charCodeAt(c);
+//   }
+//   return total;
+// }
+
+// console.log(utf("hihihihi"));
