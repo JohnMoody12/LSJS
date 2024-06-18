@@ -288,3 +288,156 @@
 // }
 
 // console.log(featured(999999));
+
+// function bubble(arr) {
+//   let tmp;
+//   let swap = true;
+//   while (swap) {
+//     swap = false;
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       if (arr[i] > arr[i + 1]) {
+//         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+//         swap = true;
+//       }
+//     }
+//   }
+// }
+
+// let arr2 = [6, 2, 7, 1, 4];
+// bubble(arr2);
+// console.log(arr2);
+
+// let longTextS =
+//   "Four score and seven years ago our fathers brought forth on this " +
+//   "continent a new nation, conceived in liberty, and dedicated to the " +
+//   "proposition that all men are created equal. Now we are engaged in a " +
+//   "great civil war, testing whether that nation, or any nation so " +
+//   "conceived and so dedicated, can long endure. We are met on a great " +
+//   "battlefield of that war. We have come to dedicate a portion of that " +
+//   "field, as a final resting place for those who here gave their lives " +
+//   "that that nation might live. It is altogether fitting and proper that " +
+//   "we should do this.";
+// function longText(str) {
+//   let sentences = str.match(/\w.*?[.!?]/g);
+
+// }
+
+// // longText("This is a sentence. This too! Is this one -- ?");
+// // longText("1234. 123! 123456?");
+// longText(longTextS);
+
+// function prime(num) {
+//   if (num === 1) return false;
+//   let top = Math.sqrt(num);
+//   console.log(top);
+//   for (let i = 2; i <= top; i++) {
+//     if (num % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// console.log(prime(173));
+
+// function flatten(arr) {
+//   let s = new Set();
+//   let answer = [];
+//   arr.forEach((row) => {
+//     for (let i = 0; i < row.length; i++) {
+//       if (!s.has(row[i].toString())) {
+//         s.add(row[i].toString());
+//         answer.push(row[i]);
+//       } else {
+//       }
+//     }
+//   });
+//   return answer;
+// }
+
+// function flatten(arr) {
+//   let s = {};
+//   let answer = [];
+//   arr.forEach((row) => {
+//     for (let i = 0; i < row.length; i++) {
+//       if (!s[row[i].toString()]) {
+//         s[row[i].toString()] = 1;
+//         answer.push(row[i]);
+//       } else {
+//       }
+//     }
+//   });
+//   return answer;
+// }
+
+// console.log(
+//   flatten([
+//     [1, 2, 3],
+//     ["3", 4, 5, "a"],
+//   ])
+// );
+
+// console.log(flatten([]));
+
+// function s(int) {
+//   return int
+//     .toString()
+//     .split("")
+//     .map((ele) => +ele)
+//     .reduce((acc, ele) => ele + acc, 0);
+// }
+
+// console.log(s(234));
+
+// let dict = {
+//   0: "zero",
+//   1: "one",
+//   2: "two",
+// };
+// function sort(arr) {
+//   return arr.sort((a, b) => {
+//     if (dict[a] < dict[b]) {
+//       return -1;
+//     } else if (dict[a] > dict[b]) {
+//       return 1;
+//     } else {
+//       return 0;
+//     }
+//   });
+// }
+
+// console.log(sort([0, 1, 2, 1, 0, 2, 2]));
+
+// function multi(arr1, arr2) {
+//   let ans = [];
+//   for (let i = 0; i < arr1.length; i++) {
+//     for (let j = 0; j < arr2.length; j++) {
+//       ans.push(arr1[i] * arr2[j]);
+//     }
+//   }
+//   return ans.sort((a, b) => a - b);
+// }
+
+// console.log(multi([2, 4], [4, 3, 1, 2]));
+
+// function sub(str) {
+//   let ans = [];
+//   str.split("").forEach((element, idx) => {
+//     ans.push(str.substring(0, idx + 1));
+//   });
+//   return ans;
+// }
+
+// console.log(sub("abc"));
+
+function sub2(str) {
+  let answer = [];
+  let arr = str.split("");
+  let sub = [[]];
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i; j < arr.length; j++) {
+      sub.push(arr[j]);
+    }
+    console.log(sub);
+  }
+}
+
+console.log(sub2("abcde"));
