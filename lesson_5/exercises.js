@@ -428,16 +428,107 @@
 
 // console.log(sub("abc"));
 
-function sub2(str) {
-  let answer = [];
+//  a b c d e
+//  ^
+//  ^ ^
+//    ^
+//    ^ ^
+
+// function sub2(str) {
+//   let answer = [];
+//   let arr = str.split("");
+//   let sub = [[]];
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     for (let j = i; j < arr.length; j++) {
+//       sub.push(arr[j]);
+//     }
+//     console.log(sub);
+//   }
+// }
+
+// console.log(sub2("abcde"));
+
+// function upper(str) {
+//   if (str.match(/[a-z]/g)?.length > 0) {
+//     return false;
+//   }
+//   return true;
+// }
+
+// console.log(upper("FOUR4 bA! "));
+
+// function noVowel(arr) {
+//   let answer = arr.slice();
+//   let tmp = [];
+//   answer.forEach((word, idx) => {
+//     for (let i = 0; i < word.length; i++) {
+//       if (/[aeiou]/i.test(word[i])) {
+//         tmp = word.split("");
+//         tmp.splice(i, 1);
+//         answer[idx] = tmp.join("");
+//       }
+//     }
+//   });
+
+//   return answer;
+// }
+
+// console.log(noVowel(["high", "buy"]));
+
+// function letter(str) {
+//   let answer = {};
+//   answer.lowercase = str.match(/[a-z]/g)?.length || 0;
+//   answer.uppercase = str.match(/[A-Z]/g)?.length || 0;
+//   answer.n = str.match(/[^a-z]/gi)?.length || 0;
+//   answer.neither = str.length - (answer.lowercase + answer.uppercase);
+
+//   return answer;
+// }
+
+// console.log(letter(" "));
+// console.log(letter("abCdef 123"));
+
+// function cap(str) {
+//   let arr = str.trim().split(" ");
+//   let capped = arr.map(
+//     (word) => word[0].toUpperCase() + word.slice(1).toLowerCase()
+//   );
+//   return capped.join(" ");
+// }
+
+// console.log(cap(' this "is" a STRING '));
+
+// function swap(str) {
+//   return str
+//     .split("")
+//     .map((char, idx) => {
+//       if (/[A-Z]/.test(char)) {
+//         return char.toLowerCase();
+//       } else if (/[a-z]/.test(char)) {
+//         return char.toUpperCase();
+//       } else {
+//         return char;
+//       }
+//     })
+//     .join("");
+// }
+
+// console.log(swap("CamelCase"));
+// console.log(swap("Tonight on XYZ-TV"));
+
+function stagger(str) {
   let arr = str.split("");
-  let sub = [[]];
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = i; j < arr.length; j++) {
-      sub.push(arr[j]);
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].match(/[a-z]/) && count % 2 === 0) {
+      arr[i] = arr[i].toUpperCase();
+    } else if (/[A-Z]/.test(arr[i]) && count % 2 === 1) {
+      arr[i] = arr[i].toLowerCase();
     }
-    console.log(sub);
+    if (arr[i].match(/[a-z]/i)) count++;
   }
+  return arr.join("");
 }
 
-console.log(sub2("abcde"));
+console.log(stagger("ignore 77 the 4444 numbers"));
+console.log(stagger("ALL_CAPS"));
