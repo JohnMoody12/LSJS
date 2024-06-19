@@ -698,3 +698,294 @@
 // console.log(minilang("5 PRINT PUSH 3 PRINT ADD PRINT"));
 // minilang("3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT");
 // minilang("6 PUSH");
+
+// function conv(str) {
+//   let dict = { zero: 0, one: 1, two: 2 };
+//   return str
+//     .split(" ")
+//     .map((word, idx) => {
+//       if (dict.hasOwnProperty(word)) {
+//         return dict[word];
+//       } else {
+//         return word;
+//       }
+//     })
+//     .join(" ");
+// }
+
+// console.log(conv("one zero one two bob"));
+
+// function fibLength(num) {
+//   let prev = 1n;
+//   let cur = 1n;
+//   let i = 2;
+//   while (cur.toString().length < num) {
+//     [prev, cur] = [cur, prev + cur];
+//     i += 1;
+//   }
+//   return i;
+// }
+
+// console.log(fibLength(1000n));
+// let dict = {};
+// function fib(num) {
+//   if (num === 1 || num === 2) return 1;
+//   if (dict[num]) {
+//     return dict[num];
+//   }
+//   dict[num] = fib(num - 1) + fib(num - 2);
+//   return dict[num];
+// }
+
+// console.log(fib(75));
+
+// function fib2(num) {
+//   if (num <= 2) return 1;
+
+//   let prev = 1;
+//   let cur = 1;
+
+//   for (let i = 2; i < num; i++) {
+//     [prev, cur] = [cur, prev + cur];
+//   }
+
+//   return cur;
+// }
+
+// console.log(fib2(75));
+
+// function letterz(str) {
+//   let lower = ((str.match(/[a-z]+/g)?.length || 0 / str.length) * 100).toFixed(
+//     2
+//   );
+//   let upper = ((str.match(/[A-Z]+/g)?.length || 0 / str.length) * 100).toFixed(
+//     2
+//   );
+//   let neither = (100 - lower - upper).toFixed(2);
+
+//   return { lowercase: lower, uppercase: upper, neither: neither };
+// }
+
+// console.log(letterz("ass"));
+
+// console.log("this splits a hypened-word into two words".match(/\b\w+\b/g));
+// console.log("this keeps a hypened-word as one word".match(/\b[\w-]+\b/g));
+// console.log(
+//   "this keeps a hypened-word as one word plus last word using (s|$)".match(
+//     /[\w-]+(\s|$)/g
+//   )
+// );
+
+// let dict = {
+//   cat: "feline",
+//   bat: "batline",
+//   dog: "knine",
+// };
+
+// function searchWord(text) {
+//   let newText = text;
+//   for (let word in dict) {
+//     let regex = new RegExp(`\\b${word}\\b`, "gi");
+//     newText = newText.replace(regex, `${dict[word]}`);
+//     console.log(newText);
+//   }
+//   return newText;
+// }
+
+// console.log(searchWord("the cat jumped over the bat, but the dog was mad"));
+
+// function lights(num) {
+//   let arr = new Array(num).fill(0);
+
+//   for (let count = 1; count <= num; count++) {
+//     for (let idx = 0; idx < num; idx++) {
+//       if ((idx + 1) % count === 0) {
+//         if (arr[idx] === 0) {
+//           arr[idx] = 1;
+//         } else {
+//           arr[idx] = 0;
+//         }
+//       }
+//     }
+//   }
+//   let indexes = arr
+//     .map((ele, idx) => {
+//       if (ele === 1) {
+//         return idx + 1;
+//       } else if (ele === 0) {
+//         return -1;
+//       }
+//     })
+//     .filter((ele) => ele > 0);
+
+//   return indexes;
+// }
+
+// function toggler(idx) {}
+
+// console.log(lights(100));
+
+// function lights(num) {
+//   let arr = new Array(num).fill(0);
+
+//   for (let count = 1; count <= num; count++) {
+//     arr = toggler(arr, count);
+//   }
+//   let indexes = arr
+//     .map((ele, idx) => {
+//       if (ele === 1) {
+//         return idx + 1;
+//       } else if (ele === 0) {
+//         return -1;
+//       }
+//     })
+//     .filter((ele) => ele > 0);
+
+//   return indexes;
+// }
+
+// function toggler(arr, count) {
+//   return arr.map((ele, idx) => {
+//     if ((idx + 1) % count === 0) {
+//       if (ele === 0) {
+//         return 1;
+//       } else {
+//         return 0;
+//       }
+//     }
+//     return ele;
+//   });
+// }
+
+// console.log(lights(100));
+
+// function trans(arr) {
+//   let transposed = [];
+//   let tmp;
+//   for (let rowIdx = 0; rowIdx < arr[0].length; rowIdx += 1) {
+//     transposed.push([]);
+//   }
+//   console.log(transposed);
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr[0].length; j++) {
+//       console.log(i + "  " + j + "   " + arr[i][j]);
+//       transposed[j].push(arr[i][j]);
+//     }
+//     console.log(transposed);
+//   }
+//   return transposed;
+// }
+// const matrix = [
+//   [1, 5, 8, 5],
+//   [4, 7, 2, 0],
+//   [3, 9, 6, 1],
+// ];
+// console.log(trans(matrix));
+
+// function dist(arr, count) {
+//   let distinctCount = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     let letterCount = 0;
+//     for (let j = 0; j < arr.length; j++) {
+//       if (j !== i) {
+//         if (arr[i] === arr[j]) letterCount++;
+//       }
+//     }
+//     if (letterCount === 0) {
+//       distinctCount++;
+//     }
+//     if (distinctCount >= count && letterCount === 0) return arr[i];
+//   }
+//   return "";
+// }
+
+// console.log(dist(["d", "b", "c", "z", , "c", , "a"], 4));
+
+// function third(arr) {
+//   let max = -Infinity;
+//   let secondmax = -Infinity;
+//   let thirdmax = -Infinity;
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] >= max) {
+//       thirdmax = secondmax;
+//       secondmax = max;
+//       max = arr[i];
+//     }
+//     if (arr[i] < max && arr[i] >= secondmax) {
+//       thirdmax = secondmax;
+//       secondmax = arr[i];
+//     }
+//     if (arr[i] < max && arr[i] < secondmax && arr[i] > thirdmax) {
+//       thirdmax = arr[i];
+//     }
+//     console.log(max + "  " + secondmax + "  " + thirdmax);
+//   }
+//   return thirdmax;
+// }
+
+// console.log(third([3, 2, 3, 1, 10]));
+// function primes(str) {
+//   let nums = str.match(/\d+/g);
+//   let allNums = [];
+//   nums.forEach((number) => {
+//     sub(number).forEach((sub) => {
+//       allNums.push(sub);
+//     });
+//   });
+//   console.log(allNums);
+
+//   return allNums.filter((ele) => primeMatch(Number(ele)));
+// }
+
+// function primeMatch(num) {
+//   if (num < 2) return false;
+//   for (let i = 2; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// console.log(primes("a4bc2k133d"));
+
+// function sub(str) {
+
+//   let ans = [];
+//   str.split("").forEach((element, idx) => {
+//     ans.push(str.substring(0, idx + 1));
+//   });
+//   return ans;
+// }
+
+// function primes(str) {
+//   let nums = [];
+//   for (let i = 0; i < str.length; i++) {
+//     for (let j = i; j < str.length; j++) {
+//       let substr = str.slice(i, j + 1);
+//       if (/^\d+$/.test(substr)) {
+//         nums.push(Number(substr));
+//       }
+//     }
+//   }
+//   console.log(nums);
+
+//   return nums.filter((ele) => primeMatch(Number(ele)));
+// }
+
+// function primeMatch(num) {
+//   if (num < 2) return false;
+//   for (let i = 2; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) return false;
+//   }
+//   return true;
+// }
+
+// console.log(primes("a4bc2k133d"));
+
+//console.log("abc-".match(/[a-z-]/g));
+
+let ans = [];
+str.split("").forEach((ele, idx) => {
+  ans.push(str.substring(0, idx + 1));
+});
+return ans;
