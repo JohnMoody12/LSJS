@@ -516,19 +516,185 @@
 // console.log(swap("CamelCase"));
 // console.log(swap("Tonight on XYZ-TV"));
 
-function stagger(str) {
-  let arr = str.split("");
-  let count = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].match(/[a-z]/) && count % 2 === 0) {
-      arr[i] = arr[i].toUpperCase();
-    } else if (/[A-Z]/.test(arr[i]) && count % 2 === 1) {
-      arr[i] = arr[i].toLowerCase();
-    }
-    if (arr[i].match(/[a-z]/i)) count++;
-  }
-  return arr.join("");
-}
+// function stagger(str) {
+//   let arr = str.split("");
+//   let count = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i].match(/[a-z]/) && count % 2 === 0) {
+//       arr[i] = arr[i].toUpperCase();
+//     } else if (/[A-Z]/.test(arr[i]) && count % 2 === 1) {
+//       arr[i] = arr[i].toLowerCase();
+//     }
+//     if (arr[i].match(/[a-z]/i)) count++;
+//   }
+//   return arr.join("");
+// }
 
-console.log(stagger("ignore 77 the 4444 numbers"));
-console.log(stagger("ALL_CAPS"));
+// console.log(stagger("ignore 77 the 4444 numbers"));
+// console.log(stagger("ALL_CAPS"));
+
+// function lengths(str) {
+//   if (str.length === 0) return [];
+//   let words = str.trim().split(" ");
+//   let answer = [];
+
+//   for (let i = 0; i < words.length; i++) {
+//     answer[i] = words[i] + " " + words[i].length;
+//   }
+//   return answer;
+// }
+
+// console.log(lengths(""));
+
+// function search(lookup, str) {
+//   let words = str
+//     .trim()
+//     .split(" ")
+//     .map((word) =>
+//       word
+//         .split("")
+//         .filter((char) => /[a-zA-z]/.test(char))
+//         .join("")
+//     )
+//     .filter((entry) => entry === lookup);
+
+//   return words.length;
+// }
+
+// console.log(search("one", "one. two three, four? five one one one"));
+
+// function search2(lookup, str) {
+//   let ids = [];
+//   let words = str
+//     .trim()
+//     .split(" ")
+//     .map((word) =>
+//       word
+//         .split("")
+//         .filter((char) => /[a-zA-z]/.test(char))
+//         .join("")
+//     );
+//   words.forEach((entry, idx) => {
+//     if (entry === lookup) {
+//       ids.push(idx);
+//     }
+//   });
+//   console.log(ids);
+//   ids.forEach((id) => {
+//     words[id] = `**${words[id].toUpperCase()}**`;
+//   });
+
+//   let answer = words.join(" ");
+//   return answer;
+// }
+
+// console.log(search2("one", "one. two three, four? five one one one"));
+
+// let word = "bob";
+// console.log(
+//   "bob bob. bob, bobby 123 - . ? , * ! _".match(new RegExp(`\\S`, "g"))
+// );
+
+// function search2(match, str) {
+//   let searcher = new RegExp(`\\b${match}\\b`, "g");
+//   return str.replace(searcher, `**${match.toUpperCase()}**`);
+// }
+
+// console.log(search2("one", "one .one. one, onesies two"));
+
+// function rotate(arr) {
+//   if (!Array.isArray(arr)) return undefined;
+//   if (arr.length === 0) return [];
+//   let first = arr.shift(1);
+//   arr.push(first);
+//   return arr;
+// }
+
+// console.log(rotate([7, 3, 5, 2, 9, 1]));
+
+// console.log([7, 3, 5, 2, 9, 1].splice(0, 1));
+
+// function rotate2(num, idx) {
+//   let str = num.toString().split("");
+//   let rotated = str.splice(str.length - idx, 1);
+//   str.push(rotated[0]);
+
+//   return +str.join("");
+// }
+
+// console.log(rotate2(735291, 7));
+
+// 735291
+// ^
+// 352917
+//  ^
+
+// function rotate3(num) {
+//   let strArr = num.toString().split("");
+//   let item = "";
+//   for (let i = 0; i < strArr.length; i++) {
+//     item = strArr.splice(i, 1)[0];
+//     strArr.push(item);
+//   }
+//   console.log(strArr);
+//   return +strArr.join("");
+// }
+
+// console.log(rotate3([735291]));
+// console.log(rotate3([3]));
+// console.log(rotate3([35]));
+// console.log(rotate3([8703529146]));
+// let commandList = {
+//   PUSH: 1,
+//   MULT: 1,
+//   PRINT: 1,
+//   ADD: 1,
+//   POP: 1,
+// };
+// let reg = 0;
+// let stack = [];
+
+// function minilang(str) {
+//   let commands = str.trim().split(" ");
+//   if (!check(commands)) return "invalid command";
+//   controller(commands);
+// }
+
+// function controller(commands) {
+//   commands.forEach((command) => {
+//     if (/\d+/.test(command)) {
+//       reg = +command;
+//     } else {
+//       switch (command) {
+//         case "PUSH":
+//           stack.push(reg);
+//           break;
+//         case "PRINT":
+//           console.log(reg);
+//           break;
+//         case "ADD":
+//           reg = +reg + +stack.pop();
+//           break;
+//         case "MULT":
+//           reg = +reg * stack.pop();
+//           break;
+//         case "POP":
+//           reg = +stack.pop();
+//       }
+//     }
+//   });
+// }
+
+// function check(commands) {
+//   for (let i = 0; i < commands.length; i++) {
+//     if (!(commandList[commands[i]] || commands[i].match(/\d+/))) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(minilang("5 PUSH 3 MULT PRINT"));
+// console.log(minilang("5 PRINT PUSH 3 PRINT ADD PRINT"));
+// minilang("3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT");
+// minilang("6 PUSH");
