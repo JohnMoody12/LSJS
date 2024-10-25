@@ -1323,4 +1323,26 @@ class Solution:
                     dp[i][j]=max(dp[i+1][j], dp[i][j+1])
         return dp[0][0]
 
+        class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        dp={}
+
+        def dfs(i, canbuy):
+            if i>=len(prices):
+                return 0
+            if (i, canbuy) in dp:
+                return dp[(i, canbuy)]
+            
+            if canbuy:
+                cd = dfs(i+1, canbuy)
+                buy=dfs(i+1, not canbuy)-prices[i]
+                dp[(i, canbuy)]=max(buy, cd)
+            else:
+                cd = dfs(i+1, canbuy)
+                sell=dfs(i+2, not canbuy)+prices[i]
+                dp[(i,canbuy)]=max(sell,cd)
+            return dp[(i,canbuy)]
+
+        return dfs(0, True)
+
 */
