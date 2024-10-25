@@ -963,14 +963,26 @@
 //     for (let j = i; j < str.length; j++) {
 //       let substr = str.slice(i, j + 1);
 //       if (/^\d+$/.test(substr)) {
+//         console.log(substr);
 //         nums.push(Number(substr));
 //       }
 //     }
 //   }
-//   console.log(nums);
 
 //   return nums.filter((ele) => primeMatch(Number(ele)));
 // }
+
+// function subStr(str) {
+//   let ans = [];
+//   for (let i = 0; i < str.length; i++) {
+//     for (let j = i; j < str.length; j++) {
+//       ans.push(str.substring(i, j + 1));
+//     }
+//   }
+//   return ans;
+// }
+
+// console.log(subStr("abcde"));
 
 // function primeMatch(num) {
 //   if (num < 2) return false;
@@ -984,8 +996,322 @@
 
 //console.log("abc-".match(/[a-z-]/g));
 
-let ans = [];
-str.split("").forEach((ele, idx) => {
-  ans.push(str.substring(0, idx + 1));
-});
-return ans;
+// let ans = [];
+// let str = "abc";
+// str.split("").forEach((ele, idx) => {
+//   ans.push(str.substring(0, idx + 1));
+// });
+// console.log(ans);
+
+// function substrings(string) {
+//   let substrings = [];
+//   for (let startIndex = 0; startIndex < string.length; startIndex += 1) {
+//     let substring = string.substring(startIndex);
+//     substrings = substrings.concat(leadingSubstrings(substring));
+//   }
+
+//   return substrings;
+// }
+
+// function leadingSubstrings(string) {
+//   let substrings = [];
+//   for (let length = 1; length <= string.length; length += 1) {
+//     substrings.push(string.slice(0, length));
+//   }
+
+//   return substrings;
+// }
+
+// console.log(substrings("abcde"));
+
+// function searchWord(str, text) {
+//   let num = 0;
+//   let splitText = text.trim().split(" ");
+
+//   splitText.forEach((element) => {
+//     let regex = new RegExp(`${str}`, "gi");
+//     if (element.match(regex)) {
+//       num++;
+//     }
+//   });
+
+//   return num;
+// }
+
+// function searchWord(str, text) {
+//   let ansText;
+//   let regex = new RegExp(`${str}`, "gi");
+//   ansText = text.replace(regex, `**${str.toUpperCase()}**`);
+//   return ansText;
+// }
+
+// const text =
+//   "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
+
+// console.log(searchWord("sed", text)); // 3
+
+// function triangle(a, b, c) {
+//   let angles = [a, b, c];
+//   if (a + b + c !== 180) return "invalid";
+//   if (a <= 0 || b <= 0 || c <= 0) return "invalid";
+//   if (angles.some((angle) => angle === 90)) return "right";
+//   if (angles.every((angle) => angle < 90)) return "acute";
+//   if (angles.some((angle) => angle > 90)) return "obtuse";
+// }
+
+// console.log(triangle(60, 70, 50));
+// console.log(triangle(30, 60, 90));
+// console.log(triangle(120, 50, 10));
+// console.log(triangle(0, 90, 90));
+// console.log(triangle(50, 50, 50));
+
+// function unlucky(year) {
+//   let ans = [];
+//   for (let month = 0; month < 12; month++) {
+//     ans.push(new Date(year, month, 13).getDay());
+//   }
+//   console.log(ans.filter((day) => day === 5).length);
+// }
+// unlucky(2015);
+
+// function fib2(n) {
+//   let prev = 1;
+//   let cur = 1;
+//   let count = 2;
+//   while (cur.toString().length < n) {
+//     [prev, cur] = [cur, prev + cur];
+//     count++;
+//   }
+//   return count;
+// }
+// console.log(fib2(2));
+
+// let dict = { one: 1, two: 2, three: 3 };
+
+// function wordToDigit(str) {
+//   let ans = str.match(/\b\w+[.,:;?!]?\s*/g);
+//   console.log(ans);
+//   ans.forEach((word, idx) => {
+//     if (dict[word]) {
+//       ans[idx] = dict[word];
+//     }
+//   });
+//   return ans.join(" ");
+// }
+
+// function wordToDigit(str) {
+//   let newStr = str;
+//   for (let key in dict) {
+//     let regex = new RegExp(`\\b${key}\\b`, "gi");
+//     newStr = newStr.replace(regex, dict[key]);
+//   }
+//   return newStr;
+// }
+
+// console.log(wordToDigit("ones two three. a."));
+// let memo = {};
+// function fib(n) {
+//   if (n <= 2) return 1;
+//   if (memo[n]) return memo[n];
+//   memo[n] = fib(n - 1) + fib(n - 2);
+//   return memo[n];
+// }
+
+// console.log(fib(7));
+
+// function sumS(count) {
+//   let arr = [];
+//   for (let i = 1; i <= count; i++) {
+//     arr.push(+i);
+//   }
+//   let sumThenSquare = arr.reduce((acc, ele) => acc + ele, 0) ** 2;
+
+//   let squareThenSum = arr
+//     .map((ele) => ele ** 2)
+//     .reduce((acc, ele) => acc + ele, 0);
+//   return sumThenSquare - squareThenSum;
+// }
+
+// console.log(sumS(10));
+
+// function bubble(arr) {
+//   let tmp;
+//   let swapCount = 0;
+//   for (let pass = 0; pass < arr.length; pass++) {
+//     swapCount = 0;
+//     console.log(arr);
+//     for (let i = 0; i < arr.length; i++) {
+//       if (arr[i] > arr[i + 1]) {
+//         tmp = arr[i + 1];
+//         arr[i + 1] = arr[i];
+//         arr[i] = tmp;
+//         swapCount += 1;
+//       }
+//     }
+//     if (swapCount === 0) return arr;
+//   }
+
+//   return arr;
+// }
+// let array3 = ["Sue", "Pete", "Alice", "Tyler", "Rachel", "Kim", "Bonnie"];
+// console.log(bubble(array3));
+// console.log(bubble([6, 2, 7, 1, 4]));
+
+// function longest(str) {
+//   let sentences = str.match(/\w.*?[.!?]/g);
+//   let max = 0;
+//   let maxSentence = "";
+//   sentences.forEach((sentence) => {
+//     let words = sentence.split(/\s/);
+//     if (words.length > max) {
+//       max = words.length;
+//       maxSentence = sentence;
+//     }
+//   });
+
+//   return `${max} || ${maxSentence}`;
+// }
+
+// let longText =
+//   "Four score and seven years ago our fathers brought forth on this " +
+//   "continent a new nation, conceived in liberty, and dedicated to the " +
+//   "proposition that all men are created equal. Now we are engaged in a " +
+//   "great civil war, testing whether that nation, or any nation so " +
+//   "conceived and so dedicated, can long endure. We are met on a great " +
+//   "battlefield of that war. We have come to dedicate a portion of that " +
+//   "field, as a final resting place for those who here gave their lives " +
+//   "that that nation might live. It is altogether fitting and proper that " +
+//   "we should do this.";
+// let longerText =
+//   longText +
+//   "But, in a larger sense, we can not dedicate, we can not consecrate, " +
+//   "we can not hallow this ground. The brave men, living and dead, who " +
+//   "struggled here, have consecrated it, far above our poor power to add " +
+//   "or detract. The world will little note, nor long remember what we say " +
+//   "here but it can never forget what they did here. It is for us the " +
+//   "living, rather, to be dedicated here to the unfinished work which " +
+//   "they who fought here have thus far so nobly advanced. It is rather " +
+//   "for us to be here dedicated to the great task remaining before us -- " +
+//   "that from these honored dead we take increased devotion to that " +
+//   "cause for which they gave the last full measure of devotion -- that " +
+//   "we here highly resolve that these dead shall not have died in vain " +
+//   "-- that this nation, under God, shall have a new birth of freedom -- " +
+//   "and that government of the people, by the people, for the people, " +
+//   "shall not perish from the earth.";
+// console.log(longest(longerText));
+
+// let dictEven = {
+//   the: "thou",
+// };
+// let dictOdd = {
+//   the: "thee",
+// };
+// let text = "The cat jumped over the moon. The dog did not.";
+// function other(str) {
+//   let sentences = str.match(/\w.*?[.!?]/g);
+//   sentences.forEach((sentence, idx) => {
+//     if (idx % 2 === 0) {
+//       even(sentences, sentence, idx);
+//     } else if (idx % 2 === 1) {
+//       odd(sentences, sentence, idx);
+//     }
+//   });
+//   return sentences.join(" ");
+// }
+
+// function even(sentences, sentence, idx) {
+//   for (let key in dictEven) {
+//     let regex = new RegExp(`\\b${key}\\b`, "gi");
+//     sentences[idx] = sentence.replace(regex, dictEven[key]);
+//   }
+// }
+// function odd(sentences, sentence, idx) {
+//   for (let key in dictOdd) {
+//     let regex = new RegExp(`\\b${key}\\b`, "gi");
+//     sentences[idx] = sentence.replace(regex, dictOdd[key]);
+//   }
+// }
+
+// console.log(other(text));
+
+//sanitize - empty
+//Run through each object in the array using forEach
+//check obj against the key list. where obj[key]s are found,
+//we'll push to ans array
+//may need to cleanup ans array - if array.length is 1, replace w/value
+
+// function sort(array, string) {
+//   let ans = [];
+//   let keys = string.map((key) => key.toLowerCase());
+
+//   array.forEach((object, idx) => {
+//     for (let key of keys) {
+//       if (object.hasOwnProperty(key)) {
+//         if (ans[idx]) {
+//           ans[idx].push(object[key]);
+//         } else {
+//           ans[idx] = [];
+//           ans[idx].push(object[key]);
+//         }
+//       }
+//     }
+//     if (ans[idx].length === 1) {
+//       ans.splice(idx, 1, ans[idx][0]);
+//     }
+//   });
+
+//   return ans;
+// }
+
+// console.log(
+//   sort([{ a: 1, b: 2 }, { a: "blob", b: 3 }, { a: "ahh" }], ["a", "b", "c"])
+// );
+
+// ans.forEach((ansArray, idx) => {
+//     if (ansArray.length === 1) {
+//       ans.splice(idx, 1, ansArray[0]);
+//     }
+
+// if (Object.keys({}).length < 1 || Object.keys({}) == undefined) {
+//   console.log("empty!");
+// }
+
+// let arr = [{ a: 1, b: 2 }, { a: "blob", b: 3 }, {}, { a: "ahh" }];
+// let arr2 = [[1, 2, 3], [4, 5, 6], [], [2], [1], [7, 8, 9]];
+// arr.forEach((obj, idx) => {
+//   if (Object.keys(obj).length < 1) {
+//     arr[idx] = "empty";
+//     console.log(arr[idx]);
+//   }
+// });
+
+// arr2.forEach((subArray, idx) => {
+//   if (subArray.length === 1) {
+//     arr2[idx] = subArray[0];
+//   }
+// });
+
+// arr2.forEach((subArray, idx) => {
+//   if (subArray.length === 0) {
+//     arr2.splice(idx, 1);
+//   }
+// });
+
+// console.log(arr2);
+
+/*
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        row=[1]*n
+
+        for i in range(m-1-1, -1, -1):
+            newRow=[1]*n
+            for j in range(n-1-1, -1, -1):
+                newRow[j]=newRow[j+1]+row[j]
+            row=newRow
+        return row[0]
+        
+
+
+
+*/

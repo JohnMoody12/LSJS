@@ -1,17 +1,103 @@
-header {
-  color: red;
-  font-size: 32px;
+body {
+  background-color: gray;
+  color: aliceblue;
 }
 
-h1 {
-  color: green;
-  display: inline-block;
+.header {
+  height: 200px;
+  background-color: rgb(122, 150, 152);
 }
 
-header::after {
-  content: "*";
+.parent {
+  background-color: rgb(165, 161, 169);
+  overflow: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-h1::before {
-  content: "+";
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(178, 143, 211);
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(113, 166, 191);
+  padding: 20px;
+}
+
+.row3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: rgb(143, 211, 178);
+  padding: 20px;
+}
+
+#r1b1 {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+#r1b2 {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+#r1b3 {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+}
+
+#r2b1 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(146, 243, 191);
+}
+
+#r2b2 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(146, 243, 191);
+}
+
+#r2b3 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(146, 243, 191);
+}
+
+#r3b1 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(187, 155, 204);
+}
+
+#r3b2 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(187, 155, 204);
+}
+
+#r3b3 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(187, 155, 204);
+}
+
+.red-background {
+  background-color: rgb(163, 89, 89) !important;
 }
